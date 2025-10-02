@@ -607,8 +607,8 @@ def main():
     # Create a single session to reuse connections
     session = create_session()
     
-    # Calculate today's date and the dates for the next three days
-    dates = [(datetime.now(pytz.timezone("America/New_York")) + timedelta(days=i)).strftime("%Y-%m-%d") for i in range(4)]
+    # Calculate today's date and the dates for the next two days
+    dates = [(datetime.now(pytz.timezone("America/New_York")) + timedelta(days=i)).strftime("%Y-%m-%d") for i in range(3)]
     
     all_programs = {}
     failed_channels = set()
