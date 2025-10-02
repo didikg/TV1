@@ -2,7 +2,7 @@ name: TVXML
 
 on:
   schedule:
-    - cron: '0 3 */2 * *'  # Run at 3am every 24 hours
+    - cron: '0 3 */2 * *'  # Run at 3am every 2 days
   workflow_dispatch:
 
 jobs:
@@ -25,9 +25,13 @@ jobs:
 
       - name: Run EPG Script
         run: |
-          python py/tvxml.py > en/tv.xml
+          python py/tvxml.py --days 3 > en/tv.xml
         env:
           TZ: America/New_York  # Set the timezone
+
+      - name: Compress XML with gzip (retain original)
+        run: |
+          gzip -c en/tv.xml > en/tv.xml.gz
 
 
       - name: Commit and Push Changes
@@ -37,5 +41,6 @@ jobs:
           branch: main
           files: |
             en/tvxml.xml
+            en/tv.xml.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
