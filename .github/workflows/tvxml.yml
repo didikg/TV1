@@ -33,14 +33,14 @@ jobs:
         run: |
           gzip -c en/tv.xml > en/tv.xml.gz
 
+      - name: Pull latest changes
+        run: git pull origin main --rebase
 
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Update token"
           branch: main
-          files: |
-            en/tvxml.xml
-            en/tv.xml.gz
+          file_pattern: en/tv.xml en/tv.xml.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
