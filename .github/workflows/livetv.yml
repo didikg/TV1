@@ -42,7 +42,7 @@ jobs:
 
       - name: Run Python Script livetv
         run: |
-          python py/livetv.py | sed '/#EXTM3U/d' >> en/livetv.m3u          
+          python py/livetv.py > en/livetv.m3u         
 
       # Extract the token from one of the other links
       - name: Extract Token and Update ESPN Links
@@ -59,7 +59,6 @@ jobs:
         with:
           commit_message: "Update token"
           branch: main
-          files: |
-            en/livetv.m3u
+          file_pattern: en/livetv.m3u
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
