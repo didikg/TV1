@@ -8,7 +8,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '45 3,7,11,15,19,23 * * *'  # Run every 3 hours
+    - cron: '45 3,7,11,15,19,23 * * *'  # Run every 4 hours
   workflow_dispatch:      # Enable manual triggering
 
 jobs:
