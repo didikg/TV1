@@ -1,4 +1,4 @@
-name: LiveTV m3u
+name: Live TV
 
 on:
   push:
