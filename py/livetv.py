@@ -219,6 +219,7 @@ group_overrides = {
     "Lifetime": "Movies",
     "LMN": "Movies",
     "Logo": "Entertainment",
+    "MeTV Toons": "Kids",
     "MLB Network": "Sports",
     "MoreMAX": "Movies",
     "MotorTrend HD": "Sports",
