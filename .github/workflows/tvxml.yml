@@ -1,4 +1,4 @@
-name: TV xml
+name: Live EPG
 
 on:
   schedule:
